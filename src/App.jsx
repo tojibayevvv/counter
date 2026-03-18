@@ -47,6 +47,9 @@ function Counter() {
     setCount((c) => c - step)
   }
 
+  const date = new Date("March 18 2026");
+  date.setDate(date.getDate() + count);
+
   return (
     <>
       <div>
@@ -57,7 +60,14 @@ function Counter() {
         </Buttons>
       </div>
       <div>
-        <p>{count}</p>
+        <p>
+          {count === 0
+            ? "Today is "
+            : count > 0
+              ? `${count} days from today is `
+              : `${Math.abs(count)} days ago was`}
+        </p>
+        <p>{date.toDateString()}</p>
         <Buttons>
           <Button onClick={handleDecrement}>-</Button>
           <Button onClick={handleIncrement}>+</Button>
