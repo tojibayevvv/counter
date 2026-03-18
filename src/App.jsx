@@ -47,7 +47,7 @@ function Counter() {
     setCount((c) => c - step)
   }
 
-  const date = new Date("March 18 2026");
+  const date = new Date("March 19 2026");
   date.setDate(date.getDate() + count);
 
   return (
