@@ -90,7 +90,11 @@ function Counter() {
       </p>
       <p>{date.toDateString()}</p>
 
-      <ResBut onClick={() => handleReset()}>Reset</ResBut>
+      {count !== 0 || step !== 1 ? (
+        <ResBut onClick={() => handleReset()}>Reset</ResBut>
+      ) : null}
+
+
     </>
   )
 }
