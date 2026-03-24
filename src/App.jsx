@@ -30,14 +30,7 @@ function App() {
 
 function Counter() {
   const [count, setCount] = useState(0)
-  const [step, setStep] = useState(0)
-
-  function handleStepIncrement() {
-    if (step < 5) setStep((c) => c + 1)
-  }
-  function handleStepDecrement() {
-    if (step > 1) setStep((c) => c - 1)
-  }
+  const [step, setStep] = useState(1)
 
   function handleIncrement() {
     setCount((c) => c + step)
@@ -53,11 +46,17 @@ function Counter() {
   return (
     <>
       <div>
+        <input
+          type="range"
+          min="0"
+          max="5"
+          value={step}
+          onChange={(e) =>
+            setStep(Number(e.target.value)
+            )} />
+
         <p>{step}</p>
-        <Buttons>
-          <Button onClick={handleStepDecrement}>-</Button>
-          <Button onClick={handleStepIncrement}>+</Button>
-        </Buttons>
+
       </div>
       <div>
         <p>
